@@ -1,5 +1,6 @@
 # ECS171GroupProject
-For Monday:
-Complete exploratory data analysis: pairplots, charts, etc.
-Identify important plots and write up 1-2 sentences on trends
-Mention future roadmap: feature selection, logistic regression, then neural network or random forest classification
+Look into removing outliers.
+Cross validation for the models.
+Data analysis for modified csv for condensing csv and also removing outliers csv.
+Random forest model (logistic maybe)
+Start woking on paper (Intro, Literature Review, Data set description)
