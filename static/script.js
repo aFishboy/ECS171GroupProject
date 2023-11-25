@@ -1,25 +1,41 @@
-function calculateSum() {
-    // Get input values
-    var input1 = document.getElementById("input1").value;
-    var input2 = document.getElementById("input2").value;
+function callModel() {
 
-    // Convert input values to numbers
-    input1 = parseFloat(input1);
-    input2 = parseFloat(input2);
+    // Object to store names and values
+    var inputValues = {};
 
-    // Check if the inputs are valid numbers
-    if (isNaN(input1) || isNaN(input2)) {
-        alert("Please enter valid numbers");
-        return;
+    // Array of input element IDs
+    var inputIds = [
+        "inputYear", "inputBpm", "inputNrgy", "inputDnce", 
+        "inputDB", "inputLive", "inputVal", "inputDur", 
+        "inputAcous", "inputSpch", "inputPop"
+    ];
+
+    // Loop through input IDs, retrieve values, and store in the object
+    for (var inputName of inputIds) {
+        var inputValue = document.getElementById(inputName).value;
+        var numericValue = parseFloat(inputValue);
+
+        // Check if the conversion is successful
+        if (!isNaN(numericValue)) {
+            inputValues[inputName] = numericValue;
+        } else {
+            alert("Please enter valid numbers for " + inputName);
+            return;
+        }
     }
 
+    // Now, inputValues contains names and corresponding numeric values
+    console.log(inputValues);
+
+
     // Make a POST request to the Python backend
-    fetch('/calculate_sum', {
+    fetch('/call_model', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ input1: input1, input2: input2 }),
+        
+        body: JSON.stringify(inputValues), // Pass the inputValues object directly
     })
     .then(response => response.json())
     .then(data => {

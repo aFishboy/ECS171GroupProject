@@ -4,15 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <title>Simple Calculator</title>
+    <title>Genre Classification</title>
 </head>
 <body>
+<!-- year,bpm,nrgy,dnce,dB,live,val,dur,acous,spch,pop -->
+    <div class="GenreClassification">
+        <h1>Genre Classification</h1>
+        <input type="number" id="inputYear" placeholder="Enter number year">
+        <input type="number" id="inputBpm" placeholder="Enter number bpm">
+        <input type="number" id="inputNrgy" placeholder="Enter number nrgy">
+        <input type="number" id="inputDnce" placeholder="Enter number dnce">
+        <input type="number" id="inputDB" placeholder="Enter number dB">
+        <input type="number" id="inputLive" placeholder="Enter number live">
+        <input type="number" id="inputVal" placeholder="Enter number val">
+        <input type="number" id="inputDur" placeholder="Enter number dur">
+        <input type="number" id="inputAcous" placeholder="Enter number acous">
+        <input type="number" id="inputSpch" placeholder="Enter number spch">
+        <input type="number" id="inputPop" placeholder="Enter number pop">
 
-    <div class="calculator">
-        <h1>Simple Calculator</h1>
-        <input type="number" id="input1" placeholder="Enter number 1">
-        <input type="number" id="input2" placeholder="Enter number 2">
-        <button onclick="calculateSum()">Calculate Sum</button>
+
+        <button onclick="callModel()">Call Model</button>
         <p id="result">Result: </p>
     </div>
 

@@ -6,16 +6,20 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/calculate_sum', methods=['POST'])
-def calculate_sum():
+@app.route('/call_model', methods=['POST'])
+def call_model():
     try:
-        # Get input values from the JSON request
+        # Get JSON data from the request
         data = request.get_json()
-        input1 = float(data['input1'])
-        input2 = float(data['input2'])
+
+        # Now, 'data' is a Python dictionary
+        print(data)
 
         # Calculate the sum
-        sum_result = input1 + input2
+        sum_result = 0
+
+        for value in data.values():
+            sum_result += value
 
         # Return the result as JSON
         return jsonify(result=sum_result)
