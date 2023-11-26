@@ -7,9 +7,17 @@
     <title>Genre Classification</title>
 </head>
 <body>
-<!-- year,bpm,nrgy,dnce,dB,live,val,dur,acous,spch,pop -->
     <div class="GenreClassification">
         <h1>Genre Classification</h1>
+        
+        <!-- Textarea for entering CSV -->
+        <input type="text" id="csvInput" placeholder="Enter CSV data">
+        
+
+        <!-- Button to process the CSV input -->
+        <button onclick="callModelCSV()">Process CSV</button>
+
+        <!-- Individual number inputs -->
         <input type="number" id="inputYear" placeholder="Enter number year">
         <input type="number" id="inputBpm" placeholder="Enter number bpm">
         <input type="number" id="inputNrgy" placeholder="Enter number nrgy">
@@ -22,8 +30,7 @@
         <input type="number" id="inputSpch" placeholder="Enter number spch">
         <input type="number" id="inputPop" placeholder="Enter number pop">
 
-
-        <button onclick="callModel()">Call Model</button>
+        <button onclick="callModelBoxes()">Call Model</button>
         <p id="result">Result: </p>
     </div>
 

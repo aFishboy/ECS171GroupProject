@@ -1,3 +1,4 @@
+import pickle
 from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
@@ -11,18 +12,34 @@ def call_model():
     try:
         # Get JSON data from the request
         data = request.get_json()
-
         # Now, 'data' is a Python dictionary
+
+        # Load the trained model
+        with open('model.pkl', 'rb') as model_file:
+            model = pickle.load(model_file)
+        
         print(data)
 
-        # Calculate the sum
-        sum_result = 0
+        # Extract features from the data dictionary
+        features = [
+            data['inputYear'], 
+            data['inputBpm'], 
+            data['inputNrgy'], 
+            data['inputDnce'],
+            data['inputDB'],
+            data['inputLive'],
+            data['inputVal'],
+            data['inputDur'],
+            data['inputAcous'],
+            data['inputSpch'],
+            data['inputPop']
+        ]
 
-        for value in data.values():
-            sum_result += value
+        # Perform prediction using the trained model
+        prediction = model.predict([features])
 
         # Return the result as JSON
-        return jsonify(result=sum_result)
+        return jsonify(result=prediction.tolist())
 
     except ValueError:
         return jsonify(error='Invalid input. Please enter valid numbers.')
