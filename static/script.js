@@ -23,10 +23,17 @@ function callModelBoxes() {
             return;
         }
     }
+    
+    var actualGenre = document.getElementById("inputGenre").value;
+
+    // Check if actualGenre is a non-empty string
+    if (typeof actualGenre !== "string" || actualGenre.trim().length <= 0) {
+        alert("Please enter a valid non-empty string for the genre.");
+    }
 
     // Now, inputValues contains names and corresponding numeric values
-    console.log(inputValues);
-    requestModel(inputValues);    
+    console.log(inputValues, actualGenre);
+    requestModel(inputValues, actualGenre);    
 }
 
 function callModelCSV() {
@@ -66,16 +73,21 @@ function callModelCSV() {
             }
         }
 
+        var actualGenre = csvValues[11];
+        // Check if actualGenre is a non-empty string
+        if (typeof actualGenre !== "string" || actualGenre.trim().length <= 0) {
+            alert("Please enter a valid non-empty string for the genre.");
+        }
 
-        console.log(csvDictionary);
-        requestModel(csvDictionary);
+        console.log(csvDictionary, actualGenre);
+        requestModel(csvDictionary, actualGenre);
         // If you want to store this dictionary for further use, you can assign it to a global variable
         // Assuming 'csvDictionary' is a global variable
         // csvDictionary = csvDictionary;
     }
 }
 
-function requestModel(inputDictionary) {
+function requestModel(inputDictionary, actualGenre) {
     // Make a POST request to the Python backend
     fetch('/call_model', {
         method: 'POST',
@@ -88,7 +100,9 @@ function requestModel(inputDictionary) {
     .then(response => response.json())
     .then(data => {
         // Display the result
-        document.getElementById("result").innerText = "Result: " + data.result;
+        document.getElementById("result").innerText = "Model Guess: " + data.result;
+        document.getElementById("correctGenre").innerText = "Correct Genre: " + actualGenre;
+
     })
     .catch(error => {
         alert("An error occurred. Please try again.");

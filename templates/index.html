@@ -29,9 +29,12 @@
         <input type="number" id="inputAcous" placeholder="Enter number acous">
         <input type="number" id="inputSpch" placeholder="Enter number spch">
         <input type="number" id="inputPop" placeholder="Enter number pop">
+        <input type="text" id="inputGenre" placeholder="Enter Genre">
 
         <button onclick="callModelBoxes()">Call Model</button>
         <p id="result">Result: </p>
+        <p id="correctGenre">Correct Genre: </p>
+
     </div>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
