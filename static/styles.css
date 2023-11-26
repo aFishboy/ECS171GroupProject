@@ -33,3 +33,31 @@ button {
 button:hover {
     background-color: #2980b9;
 }
+
+.flex-parent-element {
+	display: flex;
+	width: 60%; /*width size of grids*/
+    margin: 0 auto; /* Center the flex container horizontally */
+}
+  
+.flex-child-element {
+	flex: 1;
+	border: 2px solid black;
+	margin: 10px;
+}
+  
+.flex-child-element:first-child {
+	margin-right: 20px;
+}
+
+.container {
+	justify-content: space-between;
+	flex-direction: column;
+	height: 10vh;
+	display: flex;
+}
+.container .btn-holder {
+	margin-top: auto; /* Push the button to the bottom */
+	justify-content: flex-end;
+	display: flex;
+}
