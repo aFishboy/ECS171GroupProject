@@ -21,6 +21,12 @@ input {
     margin: 8px;
 }
 
+#csvInput {
+    width: 95%;
+    height: 80px;
+    resize: both; /* Allows both horizontal and vertical resizing */
+}
+
 button {
     padding: 10px;
     background-color: #3498db;
@@ -36,7 +42,7 @@ button:hover {
 
 .flex-parent-element {
 	display: flex;
-	width: 60%; /*width size of grids*/
+	width: 80%; /*width size of grids*/
     margin: 0 auto; /* Center the flex container horizontally */
 }
   
@@ -44,6 +50,12 @@ button:hover {
 	flex: 1;
 	border: 2px solid black;
 	margin: 10px;
+}
+
+.flex-child-element.left {
+    flex: 65%; 
+    border: 2px solid black;
+    margin: 10px;
 }
   
 .flex-child-element:first-child {

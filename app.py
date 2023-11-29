@@ -3,6 +3,10 @@ from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 
+# Load the trained model
+with open('model.pkl', 'rb') as model_file:
+    model = pickle.load(model_file)
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -14,9 +18,7 @@ def call_model():
         data = request.get_json()
         # Now, 'data' is a Python dictionary
 
-        # Load the trained model
-        with open('model.pkl', 'rb') as model_file:
-            model = pickle.load(model_file)
+        
         
         print(data)
 
