@@ -1,5 +1,4 @@
-# ECS171GroupProject
-# Group 35: 
+# ECS171GroupProject: Group 35: 
 
 ## Names and Emails
 Niharika Misal\
