@@ -35,7 +35,7 @@ Source Code in genrePrediction_Final.ipynb - download a copy then run (preferabl
 app.py - front end model\
 
 ## Instructions to Run Front End Model
-    In order to run our front end model:\
+In order to run our front end model:\
     In Terminal, run code:\
     git clone https://github.com/aFishboy/ECS171GroupProject.git \
     then change directory:\
