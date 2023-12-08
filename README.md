@@ -33,6 +33,8 @@ top genre - genre of the track (and the target variable for this problem)
 ## Files Included:
 Source Code in genrePrediction_Final.ipynb - download a copy then run (preferably in Jupyter environment)\
 app.py - front end model\
+
+## Instructions to Run Front End Model
     In order to run our front end model:\
     In Terminal, run code:\
     git clone https://github.com/aFishboy/ECS171GroupProject.git \
